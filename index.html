@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dark/Light Theme Toggle with Emoji</title>
+  <style>
+    :root {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --card-bg: #1f1f1f;
+      --primary-color: #bb86fc;
+      --link-color: #90caf9;
+      --header-footer-bg: #1e1e1e;
+      --shadow-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .light-theme {
+      --bg-color: #ffffff;
+      --text-color: #1a1a1a;
+      --card-bg: #f9f9f9;
+      --primary-color: #6200ee;
+      --link-color: #1e88e5;
+      --header-footer-bg: #f1f1f1;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    header, footer {
+      background-color: var(--header-footer-bg);
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      border-bottom: 1px solid #333;
+    }
+
+    nav a {
+      color: var(--link-color);
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    article {
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 6px var(--shadow-color);
+    }
+
+    article h2 {
+      color: var(--primary-color);
+    }
+
+    footer {
+      border-top: 1px solid #333;
+    }
+
+    #theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 8px 16px;
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      border: 1px solid #444;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    #theme-toggle:hover {
+      background-color: var(--link-color);
+      color: #fff;
+    }
+  </style>
+</head>
+<body class="dark-theme">
+
+  <header>
+    <h1>Dark/Light Themed Webpage</h1>
+    <button id="theme-toggle">🌙 Light Mode</button>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section>
+    <article>
+      <h2>Dark UI Blog Post</h2>
+      <p>Dark themes reduce eye strain and save battery life on OLED screens. They also look sleek and modern.</p>
+    </article>
+    <article>
+      <h2>Why Use Semantic HTML?</h2>
+      <p>Semantic tags like &lt;article&gt;, &lt;section&gt;, and &lt;footer&gt; improve both accessibility and SEO by giving meaning to content.</p>
+    </article>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Themed Website. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('light-theme');
+      if (body.classList.contains('light-theme')) {
+        toggleBtn.textContent = '☀️ Dark Mode';
+      } else {
+        toggleBtn.textContent = '🌙 Light Mode';
+      }
+    });
+  </script>
+</body>
+</html>
